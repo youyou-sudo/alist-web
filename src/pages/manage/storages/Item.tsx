@@ -120,19 +120,31 @@ const Item = (props: ItemProps) => {
                 : undefined
             }
           >
-            <SelectOptions
-              readonly={props.readonly}
-              searchable={props.type === Type.Select && props.searchable}
-              options={props.options.split(",").map((key) => ({
-                key,
-                label: t(
-                  (props.options_prefix ??
-                    (props.driver === "common"
-                      ? `storages.common.${props.name}s`
-                      : `drivers.${props.driver}.${props.name}s`)) + `.${key}`,
-                ),
-              }))}
-            />
+            <SelectTrigger>
+              <SelectPlaceholder>{t("global.choose")}</SelectPlaceholder>
+              <SelectValue />
+              <SelectIcon />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectListbox>
+                <For each={props.options?.split(",")}>
+                  {(item) => (
+                    <SelectOption value={item}>
+                      <SelectOptionText>
+                        {t(
+                          (props.options_prefix ??
+                            (props.driver === "common"
+                              ? `storages.common.${props.name}s`
+                              : `drivers.${props.driver}.${props.name}s`)) +
+                            `.${item}`,
+                        )}
+                      </SelectOptionText>
+                      <SelectOptionIndicator />
+                    </SelectOption>
+                  )}
+                </For>
+              </SelectListbox>
+            </SelectContent>
           </Select>
         </Match>
       </Switch>

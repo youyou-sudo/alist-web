@@ -144,11 +144,13 @@ const Profile = () => {
               }}
             >
               <AlertIcon mr="$2_5" />
-              <AlertTitle mr="$2_5">{t("users.guest-tips")}</AlertTitle>
-              <AlertDescription>{t("users.modify_nothing")}</AlertDescription>
+              {/* <AlertTitle mr="$2_5">{t("users.guest-tips")}</AlertTitle> */}
+              <Text>{t("洗洗睡吧后台不公开")}</Text>
+              <Text>{t("点击左上角按钮并点击主页，回到主页")}</Text>
+              {/* <AlertDescription>{t("users.modify_nothing")}</AlertDescription> */}
             </Alert>
             <HStack spacing="$2">
-              <Text>{t("global.have_account")}</Text>
+              {/* <Text>{t("global.have_account")}</Text>
               <Text
                 color="$info9"
                 as={LinkWithBase}
@@ -157,7 +159,13 @@ const Profile = () => {
                 )}`}
               >
                 {t("global.go_login")}
-              </Text>
+              </Text> */}
+              {/* 图片内容 */}
+              <img
+                src="https://img.jerryyang.link/2023/07/09/1688890029466.webp"
+                width="50%"
+                height="50%"
+              ></img>
             </HStack>
           </>
         }
